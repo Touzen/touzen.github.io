@@ -145,6 +145,19 @@ div#hero {
     margin-right: 5em;
 }
 
+section#links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 30%;
+}
+
+#links img {
+    height: 60px;
+    width: 60px;
+    padding: 0 30px;
+}
+
 #hero section {
     width: 75%;
     margin-left: auto;
