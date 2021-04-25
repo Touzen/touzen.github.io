@@ -13,6 +13,14 @@ h1.title {
 h1.section-title {
     font-size: 55px;
     font-weight: 900;
+    /*text-decoration: underline #b44444;
+    text-decoration-thickness: 5px;*/
+}
+
+span {
+    display: inline-block; /* inline-block enforces single underline for multiple lines */
+    border-bottom: 5px solid #b44444;
+    padding-bottom: 5px;
 }
 
 h2.publication-type {
@@ -49,8 +57,18 @@ nav ol li {
     font-weight: 400;
 }
 
-h3 {
-    font-family: 'Lato', sans-serif;
-    font-size: 24px;
-    font-weight: 400;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+header, section {
+    width: 100%;
+}
+
+h1.section-title {
+    text-align: center;
 }
