@@ -80,6 +80,7 @@ nav a:hover {
 }
 
 body {
+    margin-top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,11 +103,16 @@ h1.section-title {
 }
 
 header {
+    position: fixed;
+    background-color: #fafafa;
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 90%;
-    margin-bottom: 50px;
+}
+
+header + * {
+    margin-top: 200px;
 }
 
 header nav {
