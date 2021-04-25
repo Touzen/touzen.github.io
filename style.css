@@ -70,6 +70,7 @@ nav ol li {
     padding: 30px;
 }
 
+#title a,
 nav a {
     text-decoration: none;
 }
