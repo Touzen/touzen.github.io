@@ -60,6 +60,8 @@ h3 + p {
 nav ol {
     list-style-type: none;
     padding-left: 0;
+    display: flex;
+    justify-content: space-around;
 }
 
 nav ol li {
@@ -67,7 +69,6 @@ nav ol li {
     font-family: 'Merriweather';
     font-size: 32px;
     font-weight: 400;
-    padding: 30px;
 }
 
 #title a,
@@ -109,6 +110,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     width: 90%;
     height: 150px;
 }
@@ -122,7 +124,7 @@ header + * {
 }
 
 header nav {
-    margin-left: auto;
+    width: 50%;
 }
 
 div#hero {
