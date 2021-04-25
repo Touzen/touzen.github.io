@@ -109,6 +109,16 @@ header {
     flex-direction: row;
     align-items: center;
     width: 90%;
+    height: 150px;
+}
+
+h1.section-title:before {
+    display: block;
+    content: " ";
+    height: 150px;
+    margin-top: -150px;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 header + * {
