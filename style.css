@@ -156,4 +156,32 @@ div#hero {
     header nav {
         width: 80%;
     }
+
+    section {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    div#hero {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #hero img {
+        margin-right: 0;
+    }
+
+    #hero #introduction {
+        margin-left: 0;
+    }
+
+    section {
+        width: 75%;
+    }
 }
