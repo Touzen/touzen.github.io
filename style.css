@@ -168,6 +168,10 @@ div#hero {
         justify-content: center;
     }
 
+    header nav {
+        width: 100%;
+    }
+
     div#hero {
         flex-direction: column;
         width: 100%;
