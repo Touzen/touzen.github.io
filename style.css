@@ -13,8 +13,6 @@ h1.title {
 h1.section-title {
     font-size: 55px;
     font-weight: 900;
-    /*text-decoration: underline #b44444;
-    text-decoration-thickness: 5px;*/
 }
 
 span {
@@ -71,4 +69,15 @@ header, section {
 
 h1.section-title {
     text-align: center;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+header nav {
+    margin-left: auto;
 }
