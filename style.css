@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
 
 h1, h2 {
     font-family: 'Merriweather', serif;
+}
+
+h1.title {
+    font-size: 45px;
+    font-weight: 900;
 }
 
 h1.section-title {
@@ -19,6 +24,29 @@ p {
     font-family: 'Lato', sans-serif;
     font-size: 24px;
     font-weight: 300;
+}
+
+p.byline {
+    font-size: 32px;
+    font-weight: 300;
+}
+
+h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+nav ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+nav ol li {
+    display: inline-block;
+    font-family: 'Merriweather';
+    font-size: 32px;
+    font-weight: 400;
 }
 
 h3 {
