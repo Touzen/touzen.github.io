@@ -143,3 +143,17 @@ div#hero {
     width: 75%;
     margin-left: auto;
 }
+
+@media screen and (max-width: 1200px) {
+    h1.title {
+        margin-top: 0;
+    }
+
+    #byline {
+        display: none;
+    }
+
+    header nav {
+        width: 80%;
+    }
+}
