@@ -112,13 +112,8 @@ header {
     height: 150px;
 }
 
-h1.section-title:before {
-    display: block;
-    content: " ";
-    height: 150px;
-    margin-top: -150px;
-    visibility: hidden;
-    pointer-events: none;
+html {
+  scroll-padding-top: 150px;
 }
 
 header + * {
