@@ -11,28 +11,9 @@ h1.title {
     margin-bottom: 0;
 }
 
-h1.title + #byline {
-    margin-top: 5px;
-}
-
 h1.section-title {
     font-size: 55px;
     font-weight: 900;
-}
-
-span {
-    display: inline-block; /* inline-block enforces single underline for multiple lines */
-    border-bottom: 5px solid #b44444;
-    padding-bottom: 5px;
-}
-
-h2.publication-type {
-    font-size: 36px;
-    font-weight: 700;
-}
-
-a {
-    color: inherit;
 }
 
 p {
@@ -55,6 +36,25 @@ h3 {
 
 h3 + p {
     margin-top: 0;
+}
+
+h1.title + #byline {
+    margin-top: 5px;
+}
+
+span {
+    display: inline-block; /* inline-block enforces single underline for multiple lines */
+    border-bottom: 5px solid #b44444;
+    padding-bottom: 5px;
+}
+
+h2.publication-type {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+a {
+    color: inherit;
 }
 
 nav ol {
@@ -98,7 +98,7 @@ body {
 
 section {
     width: 50%;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 section#introduction {
@@ -158,7 +158,7 @@ section#links {
     padding: 0 30px 30px;
 }
 
-#hero section {
+section#hero {
     width: 75%;
     margin-left: auto;
 }
@@ -206,5 +206,27 @@ section#links {
 
     section {
         width: 75%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    section#hero,
+    section {
+        width: 90%;
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    nav ol li {
+        font-size: 24px;
+    }
+
+    header {
+        height: 120px;
+    }
+
+    h1.title {
+        font-size: 32px;
     }
 }
