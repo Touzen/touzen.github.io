@@ -226,6 +226,10 @@ section#hero {
         height: 120px;
     }
 
+    header + * {
+        margin-top: 150px;
+    }
+
     h1.title {
         font-size: 32px;
     }
