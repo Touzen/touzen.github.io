@@ -215,7 +215,7 @@ section#hero {
 }
 
 @media screen and (max-width: 700px) {
-    section#hero,
+    #hero #introduction,
     section {
         width: 90%;
         margin-top: 0;
