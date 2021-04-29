@@ -87,20 +87,20 @@
             }
 
             const draw = () => {
-
                 var canvas = document.getElementById("background");
                 var ctx = canvas.getContext("2d");
                 ctx.canvas.width  = window.innerWidth;
                 ctx.canvas.height = window.innerHeight;
 
-                drawMainCircle(ctx);
-                drawPiercingTriangle(ctx);
+                window.requestAnimationFrame((_) => {
+                    drawMainCircle(ctx);
+                    drawPiercingTriangle(ctx);
+                });
             }
 
-            document.addEventListener("DOMContentLoaded", function(event){
-                draw();
-            });
+            document.addEventListener('DOMContentLoaded', (e) => draw() );
             document.addEventListener('scroll', (e) => draw() );
+            window.addEventListener('resize', (e) => draw() );
         </script>
     </head>
     <body>
@@ -131,14 +131,9 @@
             </section>
         </div>
         <section id="publications">
-            <h2 class="publication-type">Workshops & Conferences</h2>
-            <h3><a target="_blank" href="https://gu-clasp.github.io/resourceful-2020/">RESOURCEFUL-2020</a></h3>
-            <p>Presented an <a target="_blank" href="https://gu-clasp.github.io/resourceful-2020/papers/RESOURCEFUL-2020_paper_4.pdf">extended abstract</a> of my master’s thesis at the workshop with the full name <em>RESOURCEs and representations For Under-resourced Languages and domains</em>.</p>
-            <h2 class="publication-type">Theses</h2>
-            <h3>Master’s thesis</h3>
-            <p><a target="_blank" href="http://urn.kb.se/resolve?urn=urn:nbn:se:kth:diva-281826">Vakili, T., 2020. A Method for the Assisted Translation of QA Datasets Using Multilingual Sentence Embeddings.</a></p>
-            <h3>Bachelor’s thesis</h3>
-            <p><a target="_blank" href="http://urn.kb.se/resolve?urn=urn:nbn:se:kth:diva-186469">Vakili, T., 2016. A Comparison of Clustering the Swedish Political Twittersphere Based on Social Interactions and on Tweet Content.</a></p>
+            <p>Thomas Vakili is a PhD student at the <a target="_blank" href="https://dsv.su.se/en/">Department of Computer and Systems Sciences</a> at <a target="_blank" href="https://www.su.se/english/">Stockholm University</a>. The focus of his research is Natural Language Processing. He is part of the <a target="_blank" href="https://dsv.su.se/en/research/research-areas/language/projects/2.58013/dataleash-learning-and-sharing-under-privacy-constraints-1.443501">DataLEASH</a> project and his supervisor is <a target="_blank" href="https://people.dsv.su.se/~hercules/">Professor Hercules Dalianis</a>.</p>
+
+            <p>He has a M.Sc. in computer science and engineering (civ.ing. i datateknik) from <a target="_blank" href="https://kth.se">KTH Royal Institute of Technology</a>. He also has industry experience from working as a IT consultant, primarily as a back-end developer and data engineer.</p>
         </section>
         <section id="contact">
             <p>I am currently working on to what extent masked language models (such as BERT) leak sensitive information about their training data. Since BERT-style models are very common, especially for lesser-resourced languages, this could have significant privacy implications.</p>
