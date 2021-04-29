@@ -3,8 +3,61 @@
         <link rel="stylesheet" href="style.css" />
         <title>Thomas Vakili - PhD student at Stockholm University</title>
         <meta name="viewport" content="width=550" />
+        <script>
+            const drawCircle = (ctx, startX, startY, radius, color) => {
+                ctx.beginPath();
+                ctx.moveTo(startX, startY - radius);
+                ctx.fillStyle = color;
+                ctx.arc(startX, startY, radius, 0, Math.PI * 2, true); // Outer circle
+                ctx.fill();
+
+            }
+
+            const drawMainCircle = (ctx) => {
+                const radius = 200;
+                const maxX = window.innerWidth - radius;
+                const maxY = window.innerHeight - radius;
+                const headerOffset = document.getElementById('home').offsetHeight;
+
+                const picture = document.getElementById("hero").firstElementChild;
+                const firstHeading = document.getElementById('publications').firstElementChild;
+                const yOffset = window.pageYOffset;
+
+                const coefficient = (yOffset/(firstHeading.offsetTop - headerOffset));
+
+                const startX = picture.x + 300;
+                const xDistanceToMax = maxX - startX;
+                const x = Math.min(startX + xDistanceToMax * coefficient, maxX);
+
+                const startY = picture.y + 150;
+                const yDistanceToMax = maxY - startY;
+                const y = Math.min(startY + yDistanceToMax * coefficient, maxY);
+
+                const color = 255 * coefficient;
+
+                const scaledRadius = radius * Math.pow(Math.max(coefficient, 1), 5);
+
+                drawCircle(ctx, x, y, scaledRadius, 'rgb(255, ' + color + ', ' + color + ')');
+            }
+
+            const draw = () => {
+
+                var canvas = document.getElementById("background");
+                var ctx = canvas.getContext("2d");
+                ctx.canvas.width  = window.innerWidth;
+                ctx.canvas.height = window.innerHeight;
+
+                drawMainCircle(ctx);
+            }
+
+            document.addEventListener("DOMContentLoaded", function(event){
+                draw();
+            });
+            document.addEventListener('scroll', (e) => draw() );
+        </script>
     </head>
     <body>
+        <canvas id="background"></canvas>
         <header id="home">
             <div id="title">
                 <a href="#hero">
