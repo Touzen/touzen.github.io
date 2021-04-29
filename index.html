@@ -27,7 +27,7 @@
                 const headerOffset = document.getElementById('home').offsetHeight;
 
                 const yOffset = window.pageYOffset;
-                const firstHeading = document.getElementById('publications').firstElementChild;
+                const firstHeading = document.getElementById('publications');
 
                 return yOffset/(firstHeading.offsetTop - headerOffset);
             }
