@@ -13,17 +13,59 @@
 
             }
 
-            const drawMainCircle = (ctx) => {
-                const radius = 200;
-                const maxX = window.innerWidth - radius;
-                const maxY = window.innerHeight - radius;
+            const drawTriangle = (ctx, pointX, pointY, color) => {
+                ctx.beginPath();
+                ctx.fillStyle = color;
+                ctx.moveTo(pointX, pointY);
+                ctx.lineTo(pointX - 270, pointY - 200);
+                ctx.lineTo(pointX - 335, pointY - 90);
+                ctx.lineTo(pointX, pointY);
+                ctx.fill();
+            }
+
+            const calculateCoefficient = () => {
                 const headerOffset = document.getElementById('home').offsetHeight;
 
-                const picture = document.getElementById("hero").firstElementChild;
-                const firstHeading = document.getElementById('publications').firstElementChild;
                 const yOffset = window.pageYOffset;
+                const firstHeading = document.getElementById('publications').firstElementChild;
 
-                const coefficient = (yOffset/(firstHeading.offsetTop - headerOffset));
+                return yOffset/(firstHeading.offsetTop - headerOffset);
+            }
+
+            const drawPiercingTriangle = (ctx) => {
+                const coefficient = calculateCoefficient();
+
+                const radius = 200;
+
+                const maxX = window.innerWidth - radius;
+                const maxY = window.innerHeight - radius;
+
+                // startX and startY could be set to something more linearly appropriate
+                const picture = document.getElementById("hero").firstElementChild;
+                const startX = -picture.x;
+                const startY = -picture.y;
+
+                const xDistanceToMax = maxX - startX;
+                const x = Math.min(startX + xDistanceToMax * coefficient, maxX);
+
+                const yDistanceToMax = maxY - startY;
+                const y = Math.min(startY + yDistanceToMax * coefficient, maxY);
+
+                const colorCoefficient = Math.max(0, coefficient - 1) * 5;
+                const color = 255 * Math.min(colorCoefficient, 1);
+
+                drawTriangle(ctx, x, y, 'rgb(255, ' + color + ', ' + color + ')');
+            }
+
+            const drawMainCircle = (ctx) => {
+                const coefficient = calculateCoefficient();
+
+                const radius = 200;
+
+                const maxX = window.innerWidth - radius;
+                const maxY = window.innerHeight - radius;
+
+                const picture = document.getElementById("hero").firstElementChild;
 
                 const startX = picture.x + 300;
                 const xDistanceToMax = maxX - startX;
@@ -52,6 +94,7 @@
                 ctx.canvas.height = window.innerHeight;
 
                 drawMainCircle(ctx);
+                drawPiercingTriangle(ctx);
             }
 
             document.addEventListener("DOMContentLoaded", function(event){
