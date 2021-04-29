@@ -35,7 +35,11 @@
 
                 const color = 255 * coefficient;
 
-                const scaledRadius = radius * Math.pow(Math.max(coefficient, 1), 5);
+                const radiusCoefficient = Math.pow(Math.max(coefficient, 1), 5); 
+                const scaledRadius = Math.min(
+                    radius * radiusCoefficient,
+                    window.innerHeight * 2
+                );
 
                 drawCircle(ctx, x, y, scaledRadius, 'rgb(255, ' + color + ', ' + color + ')');
             }
