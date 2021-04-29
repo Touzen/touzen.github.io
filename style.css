@@ -101,7 +101,7 @@ body {
 
 section {
     width: 50%;
-    margin-top: 40px;
+    margin-top: 200px;
 }
 
 section#introduction {
@@ -130,7 +130,7 @@ html {
 }
 
 header + * {
-    margin-top: 200px;
+    margin-top: 300px;
 }
 
 header nav {
