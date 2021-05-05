@@ -6,6 +6,25 @@
         <script>
             const triangleCircleDelay = 0.5;
 
+            const setActiveSection = () => {
+                const [introduction, publications, contact, ..._] = document.getElementsByTagName('section');
+                const [homeCursor, publicationsCursor, contactCursor, ...__] = document.getElementsByTagName('span');
+
+                if (contact.offsetTop < window.pageYOffset + 200) {
+                    homeCursor.className = '';
+                    publicationsCursor.className = '';
+                    contactCursor.className = 'terminal';
+                } else if (publications.offsetTop < window.pageYOffset + 200) {
+                    homeCursor.className = '';
+                    publicationsCursor.className = 'terminal';
+                    contactCursor.className = '';
+                } else {
+                    homeCursor.className = 'terminal';
+                    publicationsCursor.className = '';
+                    contactCursor.className = '';
+                }
+            }
+
             const drawCircle = (ctx, startX, startY, radius, color) => {
                 ctx.beginPath();
                 ctx.moveTo(startX, startY - radius);
@@ -139,6 +158,7 @@
                     drawPiercingTriangle(ctx);
                     updateColors();
                     stickySections();
+                    setActiveSection();
                 });
             }
 
@@ -160,9 +180,9 @@
             </div>
             <nav>
             <ol>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#hero">Home<span>_</span></a></li>
+                <li><a href="#publications">Publications<span>_</span></a></li>
+                <li><a href="#contact">Contact<span>_</span></a></li>
             </ol>
             </nav>
         </header>
