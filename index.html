@@ -6,6 +6,11 @@
         <script>
             const triangleCircleDelay = 0.5;
 
+            const getRadius = () => {
+                const anySection = document.getElementById('writing');
+                return Math.min(anySection.offsetLeft, 200);
+            }
+
             const animateHeader = () => {
                 const title = document.getElementById('title');
                 const [navList] = document.getElementsByTagName('ol');
@@ -30,21 +35,21 @@
             }
 
             const setActiveSection = () => {
-                const [introduction, publications, contact, ..._] = document.getElementsByTagName('section');
-                const [homeCursor, publicationsCursor, contactCursor, ...__] = document.getElementsByTagName('span');
+                const [introduction, writing, tech, ..._] = document.getElementsByTagName('section');
+                const [homeCursor, writingCursor, techCursor, ...__] = document.getElementsByTagName('span');
 
-                if (contact.offsetTop < window.pageYOffset + 200) {
+                if (tech.offsetTop < window.pageYOffset + 200) {
                     homeCursor.className = '';
-                    publicationsCursor.className = '';
-                    contactCursor.className = 'terminal';
-                } else if (publications.offsetTop < window.pageYOffset + 200) {
+                    writingCursor.className = '';
+                    techCursor.className = 'terminal';
+                } else if (writing.offsetTop < window.pageYOffset + 200) {
                     homeCursor.className = '';
-                    publicationsCursor.className = 'terminal';
-                    contactCursor.className = '';
+                    writingCursor.className = 'terminal';
+                    techCursor.className = '';
                 } else {
                     homeCursor.className = 'terminal';
-                    publicationsCursor.className = '';
-                    contactCursor.className = '';
+                    writingCursor.className = '';
+                    techCursor.className = '';
                 }
             }
 
@@ -57,12 +62,12 @@
 
             }
 
-            const drawTriangle = (ctx, pointX, pointY, color) => {
+            const drawTriangle = (ctx, scale, pointX, pointY, color) => {
                 ctx.beginPath();
                 ctx.fillStyle = color;
                 ctx.moveTo(pointX, pointY);
-                ctx.lineTo(pointX - 270, pointY - 200);
-                ctx.lineTo(pointX - 335, pointY - 90);
+                ctx.lineTo(pointX - 270 * scale, pointY - 200 * scale);
+                ctx.lineTo(pointX - 335 * scale, pointY - 90 * scale);
                 ctx.lineTo(pointX, pointY);
                 ctx.fill();
             }
@@ -72,37 +77,36 @@
 
                 const yOffset = window.pageYOffset;
                 const hero = document.getElementById('hero');
-                const firstHeading = document.getElementById('publications');
+                const firstHeading = document.getElementById('writing');
 
                 return yOffset/(hero.offsetTop + hero.offsetHeight - headerOffset);
             }
 
             const stickySections = () => {
                 const [header] = document.getElementsByTagName('header');
-                const [publications, contact] = document.getElementsByClassName('sticky');
+                const [writing, tech] = document.getElementsByClassName('sticky');
 
                 const vhScaleDivisor = document.documentElement.clientHeight / 100;
 
                 const headerHeight = header.offsetHeight / vhScaleDivisor;
                 
-                const publicationHeight = publications.offsetHeight / vhScaleDivisor;
-                const publicationOffset = 50 - publicationHeight - headerHeight - 5;
+                const writingHeight = writing.offsetHeight / vhScaleDivisor;
+                const writingOffset = 50 - writingHeight - headerHeight - 5;
 
-                const contactHeight = contact.offsetHeight / vhScaleDivisor;
-                const contactOffset = 50 - contactHeight - headerHeight - 5;
+                const techHeight = tech.offsetHeight / vhScaleDivisor;
+                const techOffset = 50 - techHeight - headerHeight - 5;
 
-                const publicationsBottom = (publications.offsetTop + publications.offsetHeight - publications.style.paddingBottom);
-                const distance = publicationsBottom - contact.offsetTop;
-                const vhDistance = distance / vhScaleDivisor;
+                const writingBottom = (writing.offsetTop + writing.offsetHeight - writing.style.paddingBottom);
+                const distance = writingBottom - tech.offsetTop;
 
-                publications.style.top = `${publicationOffset}vh`;
-                contact.style.top = `${contactOffset}vh`;
+                writing.style.top = `${writingOffset}vh`;
+                tech.style.top = `${techOffset}vh`;
             }
 
             const drawPiercingTriangle = (ctx) => {
                 const coefficient = calculateCoefficient();
 
-                const radius = 200;
+                const radius = getRadius();
 
                 const maxX = window.innerWidth - radius;
                 const maxY = window.innerHeight - radius;
@@ -121,13 +125,13 @@
                 const colorCoefficient = Math.max(0, coefficient - 1 - triangleCircleDelay) * 5;
                 const color = 255 * Math.min(colorCoefficient, 1);
 
-                drawTriangle(ctx, x, y, 'rgb(255, ' + color + ', ' + color + ')');
+                drawTriangle(ctx, radius/200, x, y, 'rgb(255, ' + color + ', ' + color + ')');
             }
 
             const drawMainCircle = (ctx) => {
                 const coefficient = calculateCoefficient();
 
-                const radius = 200;
+                const radius = getRadius();
 
                 const maxX = window.innerWidth - radius;
                 const maxY = window.innerHeight - radius;
@@ -205,30 +209,26 @@
             <nav>
             <ol>
                 <li><a href="#hero">Home<span>_</span></a></li>
-                <li><a href="#publications">Publications<span>_</span></a></li>
-                <li><a href="#contact">Contact<span>_</span></a></li>
+                <li><a href="#writing">Writing<span>_</span></a></li>
+                <li><a href="#tech">Tech<span>_</span></a></li>
             </ol>
             </nav>
         </header>
         <div id="hero">
             <img src="images/thomas.png" alt="Picture of Thomas at the Bendery Fortress."/>
             <section id="introduction">
-            <p>Thomas Vakili is a PhD student at the <a target="_blank" href="https://dsv.su.se/en/">Department of Computer and Systems Sciences</a> at <a target="_blank" href="https://www.su.se/english/">Stockholm University</a>. The focus of his research is Natural Language Processing. He is part of the <a target="_blank" href="https://dsv.su.se/en/research/research-areas/language/projects/2.58delayConstant/dataleash-learning-and-sharing-under-privacy-constraints-1.443501">DataLEASH</a> project and his supervisor is <a target="_blank" href="https://people.dsv.su.se/~hercules/">Professor Hercules Dalianis</a>.</p>
-
-            <p>He has a M.Sc. in computer science and engineering (civ.ing. i datateknik) from <a target="_blank" href="https://kth.se">KTH Royal Institute of Technology</a>. He also has industry experience from working as a IT consultant, primarily as a back-end developer and data engineer.</p>
+            <p>Thomas Vakili is a PhD student at <a target="_blank" href="https://www.su.se/english/">Stockholm University</a> where he researches Natural Language Processing. He is a <a target="_blank" href="https://kth.se">KTH</a> alumnus and previously worked as a back-end developer and data engineer.</p>
+            <p>Setting the writing stuff aside, he has also been politically involved for over a decade in various roles in the struggle for social democracy. Nowadays, he mostly rants about politics.</p>
             </section>
         </div>
-        <section id="publications">
+        <section id="writing">
             <div class="sticky">
-            <p>Thomas Vakili is a PhD student at the <a target="_blank" href="https://dsv.su.se/en/">Department of Computer and Systems Sciences</a> at <a target="_blank" href="https://www.su.se/english/">Stockholm University</a>. The focus of his research is Natural Language Processing. He is part of the <a target="_blank" href="https://dsv.su.se/en/research/research-areas/language/projects/2.58delayConstant/dataleash-learning-and-sharing-under-privacy-constraints-1.443501">DataLEASH</a> project and his supervisor is <a target="_blank" href="https://people.dsv.su.se/~hercules/">Professor Hercules Dalianis</a>.</p>
-
-            <p>He has a M.Sc. in computer science and engineering (civ.ing. i datateknik) from <a target="_blank" href="https://kth.se">KTH Royal Institute of Technology</a>. He also has industry experience from working as a IT consultant, primarily as a back-end developer and data engineer.</p>
+            <p>As I mentioned at the top, I am a passionate socialist and sometimes reflect on what must be done on my political blog. Most of the text is in Swedish, and not all of it is strictly political. I also collect other things I have written, for example for the student union magazine Osqledaren.</p>
             </div>
         </section>
-        <section id="contact">
+        <section id="tech">
             <div class="sticky">
-            <p>I am currently working on to what extent masked language models (such as BERT) leak sensitive information about their training data. Since BERT-style models are very common, especially for lesser-resourced languages, this could have significant privacy implications.</p>
-            <p>Don't hesitate to contact me if you are interested in collaborating!</p>
+            <p>I try to collect useful tips & tricks on my writing blog. I also document whenever I deep-dive into interesting projects, both related to my research and when I come up with exciting side-projects.</p>
             </div>
         </section>
         <section id="links">
