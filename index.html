@@ -4,6 +4,8 @@
         <title>Thomas Vakili - PhD student at Stockholm University</title>
         <meta name="viewport" content="width=550" />
         <script>
+            const triangleCircleDelay = 0.5;
+
             const drawCircle = (ctx, startX, startY, radius, color) => {
                 ctx.beginPath();
                 ctx.moveTo(startX, startY - radius);
@@ -30,7 +32,7 @@
                 const hero = document.getElementById('hero');
                 const firstHeading = document.getElementById('publications');
 
-                return yOffset/(hero.offsetTop + hero.offsetHeight + 200 - headerOffset);
+                return yOffset/(hero.offsetTop + hero.offsetHeight - headerOffset);
             }
 
             const stickySections = () => {
@@ -51,7 +53,6 @@
                 const distance = publicationsBottom - contact.offsetTop;
                 const vhDistance = distance / vhScaleDivisor;
 
-                publications.style.marginTop = `-${distance}px`;
                 publications.style.top = `${publicationOffset}vh`;
                 contact.style.top = `${contactOffset}vh`;
             }
@@ -75,7 +76,7 @@
                 const yDistanceToMax = maxY - startY;
                 const y = Math.min(startY + yDistanceToMax * coefficient, maxY);
 
-                const colorCoefficient = Math.max(0, coefficient - 1) * 5;
+                const colorCoefficient = Math.max(0, coefficient - 1 - triangleCircleDelay) * 5;
                 const color = 255 * Math.min(colorCoefficient, 1);
 
                 drawTriangle(ctx, x, y, 'rgb(255, ' + color + ', ' + color + ')');
@@ -99,9 +100,9 @@
                 const yDistanceToMax = maxY - startY;
                 const y = Math.min(startY + yDistanceToMax * coefficient, maxY);
 
-                const color = 255 * coefficient;
+                const color = 255 * (coefficient);
 
-                const radiusCoefficient = Math.pow(Math.max(coefficient, 1), 5); 
+                const radiusCoefficient = Math.pow(Math.max(coefficient - triangleCircleDelay, 1), 5); 
                 const scaledRadius = Math.min(
                     radius * radiusCoefficient,
                     window.innerHeight * 2
@@ -112,7 +113,7 @@
 
             const updateColors = () => {
                 const coefficient = calculateCoefficient();
-                const colorCoefficient = 10 * Math.pow(Math.max(coefficient, 1), 10); 
+                const colorCoefficient = 10 * Math.pow(Math.max(coefficient - triangleCircleDelay, 1), 10); 
                 
                 const colorShift = Math.min(255 - colorCoefficient, 255);
 
@@ -168,14 +169,14 @@
         <div id="hero">
             <img src="images/thomas.png" alt="Picture of Thomas at the Bendery Fortress."/>
             <section id="introduction">
-            <p>Thomas Vakili is a PhD student at the <a target="_blank" href="https://dsv.su.se/en/">Department of Computer and Systems Sciences</a> at <a target="_blank" href="https://www.su.se/english/">Stockholm University</a>. The focus of his research is Natural Language Processing. He is part of the <a target="_blank" href="https://dsv.su.se/en/research/research-areas/language/projects/2.58013/dataleash-learning-and-sharing-under-privacy-constraints-1.443501">DataLEASH</a> project and his supervisor is <a target="_blank" href="https://people.dsv.su.se/~hercules/">Professor Hercules Dalianis</a>.</p>
+            <p>Thomas Vakili is a PhD student at the <a target="_blank" href="https://dsv.su.se/en/">Department of Computer and Systems Sciences</a> at <a target="_blank" href="https://www.su.se/english/">Stockholm University</a>. The focus of his research is Natural Language Processing. He is part of the <a target="_blank" href="https://dsv.su.se/en/research/research-areas/language/projects/2.58delayConstant/dataleash-learning-and-sharing-under-privacy-constraints-1.443501">DataLEASH</a> project and his supervisor is <a target="_blank" href="https://people.dsv.su.se/~hercules/">Professor Hercules Dalianis</a>.</p>
 
             <p>He has a M.Sc. in computer science and engineering (civ.ing. i datateknik) from <a target="_blank" href="https://kth.se">KTH Royal Institute of Technology</a>. He also has industry experience from working as a IT consultant, primarily as a back-end developer and data engineer.</p>
             </section>
         </div>
         <section id="publications">
             <div class="sticky">
-            <p>Thomas Vakili is a PhD student at the <a target="_blank" href="https://dsv.su.se/en/">Department of Computer and Systems Sciences</a> at <a target="_blank" href="https://www.su.se/english/">Stockholm University</a>. The focus of his research is Natural Language Processing. He is part of the <a target="_blank" href="https://dsv.su.se/en/research/research-areas/language/projects/2.58013/dataleash-learning-and-sharing-under-privacy-constraints-1.443501">DataLEASH</a> project and his supervisor is <a target="_blank" href="https://people.dsv.su.se/~hercules/">Professor Hercules Dalianis</a>.</p>
+            <p>Thomas Vakili is a PhD student at the <a target="_blank" href="https://dsv.su.se/en/">Department of Computer and Systems Sciences</a> at <a target="_blank" href="https://www.su.se/english/">Stockholm University</a>. The focus of his research is Natural Language Processing. He is part of the <a target="_blank" href="https://dsv.su.se/en/research/research-areas/language/projects/2.58delayConstant/dataleash-learning-and-sharing-under-privacy-constraints-1.443501">DataLEASH</a> project and his supervisor is <a target="_blank" href="https://people.dsv.su.se/~hercules/">Professor Hercules Dalianis</a>.</p>
 
             <p>He has a M.Sc. in computer science and engineering (civ.ing. i datateknik) from <a target="_blank" href="https://kth.se">KTH Royal Institute of Technology</a>. He also has industry experience from working as a IT consultant, primarily as a back-end developer and data engineer.</p>
             </div>
