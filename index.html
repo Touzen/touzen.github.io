@@ -27,9 +27,35 @@
                 const headerOffset = document.getElementById('home').offsetHeight;
 
                 const yOffset = window.pageYOffset;
+                const hero = document.getElementById('hero');
                 const firstHeading = document.getElementById('publications');
 
-                return yOffset/(firstHeading.offsetTop - headerOffset);
+                return yOffset/(hero.offsetTop + hero.offsetHeight + 200 - headerOffset);
+            }
+
+            const stickySections = () => {
+                const [header] = document.getElementsByTagName('header');
+                const [publications, contact] = document.getElementsByClassName('sticky');
+
+                const vhScaleDivisor = document.documentElement.clientHeight / 100;
+
+                const headerHeight = header.offsetHeight / vhScaleDivisor;
+                
+                const publicationHeight = publications.offsetHeight / vhScaleDivisor;
+                const publicationOffset = 50 - publicationHeight - headerHeight - 5;
+
+                const contactHeight = contact.offsetHeight / vhScaleDivisor;
+                const contactOffset = 50 - contactHeight - headerHeight - 5;
+
+                const publicationsBottom = (publications.offsetTop + publications.offsetHeight - publications.style.paddingBottom);
+                const distance = publicationsBottom - contact.offsetTop;
+                const vhDistance = distance / vhScaleDivisor;
+
+                publications.style.marginTop = `-${distance}px`;
+                publications.style.top = `${publicationOffset}vh`;
+                contact.style.top = `${contactOffset}vh`;
+
+                console.log(vhDistance);
             }
 
             const drawPiercingTriangle = (ctx) => {
@@ -86,6 +112,23 @@
                 drawCircle(ctx, x, y, scaledRadius, 'rgb(255, ' + color + ', ' + color + ')');
             }
 
+            const updateColors = () => {
+                const coefficient = calculateCoefficient();
+                const colorCoefficient = 10 * Math.pow(Math.max(coefficient, 1), 10); 
+                
+                const colorShift = Math.min(255 - colorCoefficient, 255);
+
+                const backgroundColor = `rgb(${255 - colorShift}, ${255 - colorShift}, ${255 - colorShift})`;
+                const textColor = `rgb(${colorShift}, ${colorShift}, ${colorShift})`;
+
+                const body = document.getElementsByTagName('body')[0];
+                body.style.color = textColor;
+                body.style.backgroundColor = backgroundColor;
+
+                const header = document.getElementsByTagName('header')[0];
+                header.style.backgroundColor = backgroundColor;
+            }
+
             const draw = () => {
                 var canvas = document.getElementById("background");
                 var ctx = canvas.getContext("2d");
@@ -95,6 +138,8 @@
                 window.requestAnimationFrame((_) => {
                     drawMainCircle(ctx);
                     drawPiercingTriangle(ctx);
+                    updateColors();
+                    stickySections();
                 });
             }
 
@@ -131,13 +176,17 @@
             </section>
         </div>
         <section id="publications">
+            <div class="sticky">
             <p>Thomas Vakili is a PhD student at the <a target="_blank" href="https://dsv.su.se/en/">Department of Computer and Systems Sciences</a> at <a target="_blank" href="https://www.su.se/english/">Stockholm University</a>. The focus of his research is Natural Language Processing. He is part of the <a target="_blank" href="https://dsv.su.se/en/research/research-areas/language/projects/2.58013/dataleash-learning-and-sharing-under-privacy-constraints-1.443501">DataLEASH</a> project and his supervisor is <a target="_blank" href="https://people.dsv.su.se/~hercules/">Professor Hercules Dalianis</a>.</p>
 
             <p>He has a M.Sc. in computer science and engineering (civ.ing. i datateknik) from <a target="_blank" href="https://kth.se">KTH Royal Institute of Technology</a>. He also has industry experience from working as a IT consultant, primarily as a back-end developer and data engineer.</p>
+            </div>
         </section>
         <section id="contact">
+            <div class="sticky">
             <p>I am currently working on to what extent masked language models (such as BERT) leak sensitive information about their training data. Since BERT-style models are very common, especially for lesser-resourced languages, this could have significant privacy implications.</p>
             <p>Don't hesitate to contact me if you are interested in collaborating!</p>
+            </div>
         </section>
         <section id="links">
             <a target="_blank" href="https://www.linkedin.com/in/thomasvakili/">

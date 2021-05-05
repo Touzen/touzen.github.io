@@ -99,9 +99,18 @@ body {
     color: #fff;
 }
 
+#hero section {
+    padding-top: 0;
+}
+
 section {
     width: 50%;
-    margin-top: 200px;
+}
+
+#publications,
+#contact {
+    padding-top: 200px;
+    height: 100vh;
 }
 
 section#introduction {
@@ -115,6 +124,7 @@ h1.section-title {
 }
 
 header {
+    z-index: 1;
     position: fixed;
     background-color: #0f0202;
     display: flex;
@@ -165,6 +175,10 @@ section#links {
 section#hero {
     width: 75%;
     margin-left: auto;
+}
+
+.sticky {
+    position: sticky;
 }
 
 @media screen and (max-width: 1200px) {
