@@ -6,6 +6,29 @@
         <script>
             const triangleCircleDelay = 0.5;
 
+            const animateHeader = () => {
+                const title = document.getElementById('title');
+                const [navList] = document.getElementsByTagName('ol');
+
+                if (window.innerWidth < 1200) {
+                    // Don't animate when screen is narrow
+                    title.style = '';
+                    navList.style = '';
+                    Array.from(navList.getElementsByTagName('li')).map( li => {
+                        li.style.padding = '';
+                    });
+                    return;
+                }
+
+                title.style.marginLeft = `${-Math.min(window.pageYOffset * 0.5, 100)}vw`;
+                title.style.opacity = Math.max(0, 1 - window.pageYOffset/50);
+                navList.style.marginLeft = `${-Math.min(window.pageYOffset * 0.5, 55)}vw`;
+
+                Array.from(navList.getElementsByTagName('li')).map( li => {
+                    li.style.padding = `${Math.min(window.pageYOffset, 2)}vw`;
+                });
+            }
+
             const setActiveSection = () => {
                 const [introduction, publications, contact, ..._] = document.getElementsByTagName('section');
                 const [homeCursor, publicationsCursor, contactCursor, ...__] = document.getElementsByTagName('span');
@@ -159,6 +182,7 @@
                     updateColors();
                     stickySections();
                     setActiveSection();
+                    animateHeader();
                 });
             }
 

@@ -65,6 +65,7 @@ nav ol {
     padding-left: 0;
     display: flex;
     justify-content: space-around;
+    width: 100%;
 }
 
 nav ol li {
@@ -144,6 +145,8 @@ header + * {
 
 header nav {
     width: 40%;
+    display: flex;
+    justify-content: center;
 }
 
 div#hero {
