@@ -79,17 +79,6 @@ nav a {
     text-decoration: none;
 }
 
-nav a {
-    text-decoration: underline 0.15em rgba(0, 0, 0, 0);
-    text-underline-offset: 0.2em;
-    transition: text-decoration-color 300ms, text-underline-offset 300ms;
-}
-
-nav a:hover {
-    text-decoration-color: #ff2f2f;
-    text-underline-offset: 0.4em;
-}
-
 body {
     margin-top: 0;
     display: flex;
@@ -138,6 +127,7 @@ header {
 
 html {
   scroll-padding-top: 150px;
+  scroll-behavior: smooth;
 }
 
 header + * {
