@@ -175,15 +175,6 @@ section#links {
     padding: 0 30px 30px;
 }
 
-#space-invader {
-    position: sticky;
-    bottom: 0;
-}
-
-#space-invader img {
-    height: 100px;
-}
-
 section#hero {
     width: 75%;
     margin-left: auto;
