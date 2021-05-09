@@ -133,6 +133,7 @@ header {
     justify-content: space-between;
     width: 90%;
     height: 150px;
+    border-radius: 0 0 20px 20px;
 }
 
 html {
@@ -172,6 +173,15 @@ section#links {
     height: 60px;
     width: 60px;
     padding: 0 30px 30px;
+}
+
+#space-invader {
+    position: sticky;
+    bottom: 0;
+}
+
+#space-invader img {
+    height: 100px;
 }
 
 section#hero {

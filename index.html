@@ -7,8 +7,13 @@
             const triangleCircleDelay = 0.5;
 
             const getRadius = () => {
-                const anySection = document.getElementById('writing');
-                return Math.min(anySection.offsetLeft, 200);
+                const writingText = document.getElementById('writing').children[0].children[0];
+                const distanceToTop =  (window.innerHeight - writingText.offsetHeight) / 2;
+                if (window.innerWidth <= 550) {
+                    return Math.min(distanceToTop/3, 200);
+                } else {
+                    return Math.min(distanceToTop/2, 200);
+                }
             }
 
             const animateHeader = () => {
@@ -138,11 +143,13 @@
 
                 const picture = document.getElementById("hero").firstElementChild;
 
-                const startX = picture.x + 300;
+                const rightShift = window.innerWidth < 1200 ? 150 : 300;
+                const startX = picture.x + 5 + rightShift;  // Really unclear why the extra 5 are needed
                 const xDistanceToMax = maxX - startX;
                 const x = Math.min(startX + xDistanceToMax * coefficient, maxX);
 
-                const startY = picture.y + 150;
+                const downShift = window.innerWidth < 1200 ? 225 : 150;
+                const startY = picture.y + downShift;
                 const yDistanceToMax = maxY - startY;
                 const y = Math.min(startY + yDistanceToMax * coefficient, maxY);
 
@@ -157,6 +164,74 @@
                 drawCircle(ctx, x, y, scaledRadius, 'rgb(255, ' + color + ', ' + color + ')');
             }
 
+            const calculateBottomCircleRadius = () => {
+                const techText = document.getElementById('tech').children[0].children[0];
+                return Math.min(
+                    window.innerWidth/8,
+                    (window.innerWidth - techText.offsetWidth) / 3,
+                    (window.innerHeight - techText.offsetHeight) / 2
+                );
+            }
+
+            const drawBottomCircles = (ctx) => {
+                const radius = calculateBottomCircleRadius();
+                const nCircles = Math.ceil(window.innerWidth/radius);
+                const y = window.innerHeight;
+                const baseXs = [...Array(nCircles).keys()]
+                    .map(idx => 1.5 * idx * radius);
+                
+                
+                const distanceToBottom = Math.max(
+                    document.body.offsetHeight - window.pageYOffset - window.innerHeight,
+                    0
+                );
+                const coordinatesBottom = baseXs.map( baseX => {
+                    const x = baseX + Math.pow(distanceToBottom/20, 2);
+                    return [x, y];
+                });
+                const coordinatesTop = baseXs.map( baseX => {
+                    const x = baseX - Math.pow(distanceToBottom/20, 2);
+                    return [x, 0];
+                });
+
+                coordinatesBottom.forEach(([x, y]) => 
+                    drawCircle(ctx, x, y, radius, 'rgb(255, 0, 0')
+                );
+                coordinatesTop.forEach(([x, y]) => 
+                    drawCircle(ctx, x, y, radius, 'rgb(255, 0, 0')
+                );
+            }
+
+            const drawSideCircles = (ctx) => {
+                const radius = calculateBottomCircleRadius();
+                const nCircles = Math.ceil(window.innerHeight/radius);
+
+                const x = window.innerWidth;
+                const baseYs = [...Array(nCircles).keys()]
+                    .map(idx => 1.5 * idx * radius);
+                
+                
+                const distanceToBottom = Math.max(
+                    document.body.offsetHeight - window.pageYOffset - window.innerHeight,
+                    0
+                );
+                const coordinatesRight = baseYs.map( baseY => {
+                    const y = baseY - Math.pow(distanceToBottom/20, 2);
+                    return [x, y];
+                });
+                const coordinatesLeft = baseYs.map( baseY => {
+                    const y = baseY + Math.pow(distanceToBottom/20, 2);
+                    return [0, y];
+                });
+
+                coordinatesRight.forEach(([x, y]) => 
+                    drawCircle(ctx, x, y, radius, 'rgb(255, 0, 0')
+                );
+                coordinatesLeft.forEach(([x, y]) => 
+                    drawCircle(ctx, x, y, radius, 'rgb(255, 0, 0')
+                );
+            }
+
             const updateColors = () => {
                 const coefficient = calculateCoefficient();
                 const colorCoefficient = 10 * Math.pow(Math.max(coefficient - triangleCircleDelay, 1), 10); 
@@ -164,6 +239,7 @@
                 const colorShift = Math.min(255 - colorCoefficient, 255);
 
                 const backgroundColor = `rgb(${255 - colorShift}, ${255 - colorShift}, ${255 - colorShift})`;
+                const backgroundColorTransparent = `rgba(${255 - colorShift}, ${255 - colorShift}, ${255 - colorShift}, 0.9)`;
                 const textColor = `rgb(${colorShift}, ${colorShift}, ${colorShift})`;
 
                 const body = document.getElementsByTagName('body')[0];
@@ -171,7 +247,7 @@
                 body.style.backgroundColor = backgroundColor;
 
                 const header = document.getElementsByTagName('header')[0];
-                header.style.backgroundColor = backgroundColor;
+                header.style.backgroundColor = backgroundColorTransparent;
             }
 
             const draw = () => {
@@ -183,6 +259,8 @@
                 window.requestAnimationFrame((_) => {
                     drawMainCircle(ctx);
                     drawPiercingTriangle(ctx);
+                    drawBottomCircles(ctx);
+                    drawSideCircles(ctx);
                     updateColors();
                     stickySections();
                     setActiveSection();
