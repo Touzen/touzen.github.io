@@ -246,7 +246,6 @@ a:hover span {
 }
 
 @media screen and (max-width: 700px) {
-    #hero #introduction,
     section {
         width: 90%;
         margin-top: 0;
