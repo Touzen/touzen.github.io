@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
-
-    {% include meta.html %}
-
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.title }}</title>
 
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
@@ -16,37 +10,41 @@
   </head>
 
   <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
-
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
-
-          <nav>
-            <a href="{{ site.baseurl }}/articles">Blog</a>
-            <a href="{{ site.baseurl }}/">About</a>
-            <a href="{{ site.baseurl }}/projects">Projects</a>
-          </nav>
+        <header id="home">
+            <div id="title">
+                <a href="{{ site.basurl }}/">
+                <h1 class="title">
+                    Thomas Vakili
+                </h1>
+                <p id="byline">PhD student and NLP enthusiast</p>
+                </a>
+            </div>
+            <nav>
+            <ol>
+                <li><a href="{{ site.baseurl }}/">Blog<span>_</span></a></li>
+                <li><a href="{{ site.baseurl }}/about">About<span>_</span></a></li>
+            </ol>
+            </nav>
         </header>
+
+    
       </div>
     </div>
 
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
+    <section id="content">
+        {{ content }}
+    </section>
+    <footer>
+        <a target="_blank" href="https://www.linkedin.com/in/thomasvakili/">
+        <img src="https://content.linkedin.com/content/dam/me/brand/en-us/brand-home/logos/In-Blue-Logo.png.original.png" alt="LinkedIn logo" />
+        </a>
+        <a target="_blank" href="https://github.com/Touzen">
+        <img src="{{ site.url }}/images/github.png" alt="GitHub mark" />
+        </a>
+        <a href="mailto:thomas.vakili@dsv.su.se">
+        <img src="{{ site.url }}/images/email.svg" alt="Email icon" />
+        </a>
+    </footer>
 
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
-    </div>
-
-    {% include analytics.html %}
   </body>
 </html>
