@@ -24,7 +24,7 @@ Now that the container has been built, we can save it to a gzipped file using th
 docker save my-docker-container | gzip > /path/to/my-docker-container.tar.gz
 ```
 
-The model is now ready for transport! By this time I have typically saved the container to a USB flash drive which I can use to move the container to the offline server.
+The container is now ready for transport! By this time I have typically saved the container to a USB flash drive which I can use to move the container to the offline server.
 
 Before we can do this, however, we need to ensure that the server has the software required to run the docker-container. You need to have the [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker) installed on the machine. The link contains installation instructions and as far as I know, there is no way to use CUDA from the container without this toolkit.
 
