@@ -187,6 +187,7 @@ a:hover span {
 .center-image {
     margin: 0 auto;
     display: block;
+    max-width: 100%;
 }
 
 @keyframes blink {
