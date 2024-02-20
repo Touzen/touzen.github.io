@@ -26,4 +26,6 @@ Here is an explanation, by row:
 
 13: List the first three metrics (for the _Original_ dataset) and insert an empty column. Rows 14 and 15 complete the row. The rest of the table just repeats the patterns of row 12 and rows 13 to 15.
 
-That's it! I hope that whoever is reading this (most likely myself) will forgive the verbosity of the explanation, but I've found many guides that leave out too much of the details which makes it difficult to understand the solution.
+That's it! I hope that whoever is reading this (most likely myself) will forgive the verbosity of the explanation, but I've found many guides that leave out too much of the details which makes it difficult to understand the solution. The key to me finally understanding how to adapt this for my work was realizing that the commands act on a _cell_ level. So, `\multirow` doesn't tell LaTeX to start a multirow environment but turns whatever is in the `{}` into a cell spanning however many rows (or columns for `\multicolumn`) you want.
+
+My solution was mostly based on the information in [this blog post](https://texblog.org/2012/12/21/multi-column-and-multi-row-cells-in-latex-tables/).
