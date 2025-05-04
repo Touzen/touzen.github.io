@@ -181,6 +181,10 @@ footer img {
     padding: 0 30px 30px;
 }
 
+footer img.invert {
+    filter: invert(1);
+}
+
 section#hero {
     width: 75%;
     margin-left: auto;
