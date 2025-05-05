@@ -30,10 +30,12 @@ h1.section-title {
 
 section#content h1 {
     color: #f5f5f5;
+    font-size: 25px;
 }
 
-section#content h1:first-of-type {
+section#content h1:first-of-type, article.post h1 a {
     color: #63cd70;
+    font-size: 30px;
 }
 
 h3,
@@ -105,8 +107,12 @@ nav ol li {
 
 #title a,
 nav a,
-article > a {
+article a {
     text-decoration: none;
+}
+
+article h1 a:hover {
+    text-decoration: underline;
 }
 
 article > a::before {
