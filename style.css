@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
+figcaption {
+    font-style: italic;
+    font-size: 80%;
+}
+
 nav a, a.read-more {
     color: #4d80bf;
 }
