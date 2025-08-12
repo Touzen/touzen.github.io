@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
+.half-image {
+    max-width: 40%;
+    display: block;
+    margin-bottom: 0.5em;
+}
+ 
+.left {
+    float: left;
+    margin-left: 0;
+    clear: right;
+}
+
+.right {
+    float: right;
+    margin-right: 0;
+    clear: left;
+}
+
+.center-image > img {
+    margin: 0 auto;
+    display: block;
+}
+
 figcaption {
     font-style: italic;
     font-size: 80%;
@@ -45,7 +68,8 @@ section#content h1:first-of-type, article.post h1 a {
 
 h3,
 li,
-p {
+p,
+figcaption {
     font-family: 'Fira Code', sans-serif;
     font-weight: 400;
     line-height: 1.3em;
@@ -309,4 +333,21 @@ a:hover span {
     h1.title {
         font-size: 32px;
     }
+
+    .left-image {
+        max-width: 100%;
+        margin: 0 auto;
+        float: none;
+    }
+
+    .left-image > img {
+        margin: 0 auto;
+        display: block;
+        max-width: 45%;
+    }
+}
+
+.MathJax {
+    overflow-x: auto;
+    overflow-y: hidden;
 }
