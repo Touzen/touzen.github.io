@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
+img {
+    max-width: 100%;
+}
+
 .half-image {
     max-width: 40%;
     display: block;
