@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<h1 class="article-title magazine-title"> {{ page.title }} </h1>
+{{ content }}
+<p class="date"> 
+    Ursprungligen publicerat i
+        {% if page.published-at %}
+        <a href="{{ page.published-at }}">{{ page.outlet }}</a>
+        {% else %}
+        {{ page.outlet }}
+        {% endif %}
+    den
+
+    {{ page.date | date: "%-d" }}
+
+    {% assign m = page.date | date: "%-m" %}
+    {% assign d1 = page.date | date: "%-d" | slice: -2 %}
+    {% assign d2 = page.date | date: "%-d" | slice: -1 %}
+    {% if d1 == '1' %}
+        :e
+    {% endif %}
+    {% if d1 != '1' %}
+        {% case d2 %}
+            {% when '1' %}
+            :a
+            {% when '2' %}
+            :a
+            {% else %}
+            :e
+        {% endcase %}
+    {% endif %}
+    {% case m %}
+    {% when '1' %}Januari
+    {% when '2' %}Februari
+    {% when '3' %}Mars
+    {% when '4' %}April
+    {% when '5' %}Maj
+    {% when '6' %}Juni
+    {% when '7' %}Juli
+    {% when '8' %}Augusti
+    {% when '9' %}September
+    {% when '10' %}Oktober
+    {% when '11' %}November
+    {% when '12' %}December
+    {% endcase %}
+    {{ page.date | date: "%Y" }}
+    .
+</p>
