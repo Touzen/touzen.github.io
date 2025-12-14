@@ -1,0 +1,130 @@
+<div class="timeline">
+    <!--Credit: https://dev.to/divyeshkamalanaban/making-a-simple-css-timeline-for-beginners-1ccg-->
+    <div class="timeline-empty">
+    </div>
+    <div class="timeline-middle">
+        <div class="timeline-circle"></div>
+    </div>
+    <div class="timeline-component timeline-content">
+        <h3>Got my PhD</h3>
+        <p>I will defend my thesis about privacy-preserving NLP on January 13, 2026.</p>
+    </div>
+
+    <div class="timeline-component timeline-content">
+        <h3>Got engaged</h3>
+        <p>In July 2025, I got engaged to Okra Livia.</p>
+    </div>
+    <div class="timeline-middle">
+        <div class="timeline-circle"></div>
+    </div>
+    <div class="timeline-empty">
+    </div>
+
+    <div class="timeline-empty">
+    </div>
+
+    <div class="timeline-middle">
+        <div class="timeline-circle"></div>
+    </div>
+
+    <div class=" timeline-component timeline-content">
+        <h3>Research visit in Chile</h3>
+        <p>In 2023, I got a scholarship to visit Assistant Professor Jocelyn Dunstan in Santiago.</p>
+    </div>
+
+    <div class="timeline-component timeline-content">
+        <h3>Started my PhD</h3>
+        <p>I started my PhD in February 2021.</p>
+    </div>
+    <div class="timeline-middle">
+        <div class="timeline-circle"></div>
+    </div>
+    <div class="timeline-empty">
+    </div>
+    <div class="timeline-empty">
+    </div>
+    <div class="timeline-middle">
+        <div class="timeline-circle"></div>
+    </div>
+    <div class="timeline-component timeline-content">
+        <h3>Finished my engineering degree</h3>
+        <p>In 2020, I got my engineering diploma and master's degree (civilingenjör).</p>
+    </div>
+    <div class="timeline-component timeline-content">
+        <h3>Started working as a consultant</h3>
+        <p>I started working at Netlight&mdash;a Swedish IT consultancy firm&mdash;in 2019.</p>
+    </div>
+    <div class="timeline-middle">
+        <div class="timeline-circle"></div>
+    </div>
+    <div class="timeline-empty">
+    </div>
+    <div class="timeline-empty">
+    </div>
+    <div class="timeline-middle">
+        <div class="timeline-circle"></div>
+    </div>
+    <div class="timeline-component timeline-content">
+        <h3>Took a break from politics</h3>
+        <p>After the election in 2019, I slowly started to scale back my political responsibilities.</p>
+    </div>
+</div>
+
+<style>
+.timeline {
+  width: 80%;
+  height: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-content {
+  padding: 20px;
+
+  border-radius: 5px;
+  color: white;
+  transition: 0.4s ease;
+  overflow-wrap: break-word !important;
+  margin: 1rem;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+
+.timeline-component {
+  margin: 0px 20px 20px 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr 3px 1fr;
+  }
+  .timeline-middle {
+    position: relative;
+    background-color: #63cd70;
+    width: 3px;
+    height: 100%;
+  }
+  .main-middle {
+    opacity: 0;
+  }
+  .timeline-circle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #63cd70;
+    transform: translate(-50%, 450%);
+
+  }
+    
+    .timeline-content:nth-child(even) {
+        text-align: right;
+    }
+}
+</style>
