@@ -71,6 +71,7 @@ section#content h1:first-of-type, article.post h1 a {
 h3,
 li,
 p,
+tr,
 figcaption {
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
@@ -272,6 +273,21 @@ a:hover span {
     margin: 0 auto;
     display: block;
     max-width: 100%;
+}
+
+table {
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+th {
+    font-weight: 700;
+}
+
+td, th {
+    padding: 0 1em;
+    text-align: center;
 }
 
 @keyframes blink {
