@@ -276,6 +276,10 @@ a:hover span {
 }
 
 table {
+    border-radius: 5px;
+    margin: 2em 0;
+    padding: 1em 0;
+    background-color: #191919;
     max-width: 100%;
     overflow-x: auto;
     display: block;
