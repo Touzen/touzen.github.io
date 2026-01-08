@@ -115,13 +115,13 @@ This produces a new CSV file that also contains links to the SNPedia website whe
 That's it! You can, of course, continue exploring the data in Jupyter Notebook. This is just where I ended my exploration, and proceeded to stare blankly at the incomprehensible data I extracted and might or might not need to feel worried about. Good luck!
 
 # Sources and inspiration
-- https://samtools.github.io/bcftools/howtos/convert.html
-- https://bioinformatics.stackexchange.com/questions/15360/how-can-i-use-my-myheritage-dna-results-file-for-further-analysis
-- https://www.biostars.org/p/374149/
-- https://pcingola.github.io/SnpEff/download/
-- https://joemcgirr.github.io/files/code_tutorials/my_genome/SnpEFF.html
-- https://github.com/broadinstitute/gatk/releases
-- https://www.biostars.org/p/9495084/
+- [https://samtools.github.io/bcftools/howtos/convert.html](https://samtools.github.io/bcftools/howtos/convert.html)
+- [https://bioinformatics.stackexchange.com/questions/15360/how-can-i-use-my-myheritage-dna-results-file-for-further-analysis](https://bioinformatics.stackexchange.com/questions/15360/how-can-i-use-my-myheritage-dna-results-file-for-further-analysis)
+- [https://www.biostars.org/p/374149/](https://www.biostars.org/p/374149/)
+- [https://pcingola.github.io/SnpEff/download/](https://pcingola.github.io/SnpEff/download/)
+- [https://joemcgirr.github.io/files/code_tutorials/my_genome/SnpEFF.html](https://joemcgirr.github.io/files/code_tutorials/my_genome/SnpEFF.html)
+- [https://github.com/broadinstitute/gatk/releases](https://github.com/broadinstitute/gatk/releases)
+- [https://www.biostars.org/p/9495084/](https://www.biostars.org/p/9495084/)
 
 # Footnotes
 
