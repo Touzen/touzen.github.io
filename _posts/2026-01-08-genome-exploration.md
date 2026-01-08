@@ -8,7 +8,7 @@ Back when genetic testing was starting to become trendy, and privacy concerns we
 
 Many years have passed, and MyHeritage is still holding on to my DNA. So, I thought I'd download it and see what I can do with the data. The first thing that comes to mind is, of course, to see if I have any rare genetic mutations! A brilliant idea for somebody who holds his breath when passing somebody coughing. In any case, the good (?) thing is that searching one's genome for anomalies is pretty easy and possible to do using open resources!
 
-> Quick reality check: MyHeritage raw data is *SNP-chip genotyping*, not full genome sequencing. That means we can look for the clinically annotated variants that MyHeritage supports, but we’re not scanning *everything,* and results are not diagnostic.
+> **Quick reality check:** MyHeritage raw data is *SNP-chip genotyping*, not full genome sequencing. That means we can look for the clinically annotated variants that MyHeritage supports, but we’re not scanning *everything,* and results are not diagnostic.
 
 If you want to download the data and install the software we'll be using *before* digging in, then here's a list of what you'll need:
 - [Bcftools](https://samtools.github.io/bcftools/)
@@ -43,7 +43,7 @@ bcftools convert --tsv2vcf dna_data.tsv  -f Homo_sapiens.GRCh37.dna.primary_asse
 
 Once you've created the VCF file, you're ready for the next, more interesting step. Let's find some clinically relevant but entirely non-actionable and possibly alarming genetic anomalies! Think carefully if this is *really* something you want to do. The end-result of this process is not very easy to parse and making sense of it involves searching through difficult-to-interpret medical research. You will very likely find something that at least *looks* alarming, and this post will *not* teach you how to actually interpret the results. Proceed at your own risk!
 
-> An extra warning: Don't forget how this could affect your family! Sure, it's your own DNA but, DNA being DNA, you share large portions of it with your parents, siblings, and children. They have (probably) not consented to your exploration of the DNA you have in common. Take a moment to reflect on how anything you find might affect your loved ones, and think about how and if you would disclose anything you find.
+> **An extra warning:** Don't forget how this could affect your family! Sure, it's your own DNA but, DNA being DNA, you share large portions of it with your parents, siblings, and children. They have (probably) not consented to your exploration of the DNA you have in common. Take a moment to reflect on how anything you find might affect your loved ones, and think about how and if you would disclose anything you find.
 
 Having established that you are either (1) a medical professional or (2) somebody with high self-confidence and/or poor judgement, we're ready to continue. The next step is to download another file, containing information about genetic variations and how they may affect your health: [ClinVar](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh37/clinvar_20260104.vcf.gz). You will also need[^2] the associated so-called [TBI file](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh37/clinvar_20260104.vcf.gz.tbi) for these next steps.
 
@@ -115,19 +115,12 @@ This produces a new CSV file that also contains links to the SNPedia website whe
 That's it! You can, of course, continue exploring the data in Jupyter Notebook. This is just where I ended my exploration, and proceeded to stare blankly at the incomprehensible data I extracted and might or might not need to feel worried about. Good luck!
 
 # Sources and inspiration
-
 - https://samtools.github.io/bcftools/howtos/convert.html
-- 
 - https://bioinformatics.stackexchange.com/questions/15360/how-can-i-use-my-myheritage-dna-results-file-for-further-analysis
-- 
 - https://www.biostars.org/p/374149/
-- 
 - https://pcingola.github.io/SnpEff/download/
-- 
 - https://joemcgirr.github.io/files/code_tutorials/my_genome/SnpEFF.html
-- 
 - https://github.com/broadinstitute/gatk/releases
-- 
 - https://www.biostars.org/p/9495084/
 
 # Footnotes

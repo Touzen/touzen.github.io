@@ -83,16 +83,25 @@ code {
     font-size: 20px;
 }
 
+div.highlight {
+    margin-left: 1em;
+    overflow-x: scroll;
+    color: #63cd70;
+}
+
 div:has(div.highlight) {
     border-left: 4px;
     border-left-style: solid;
     border-left-color: #63cd70;
 }
 
-div.highlight {
-    margin-left: 1em;
-    overflow-x: scroll;
-    color: #63cd70;
+blockquote > p {
+    border-left: 4px;
+    border-left-style: solid;
+    border-left-color: #4d80bf;
+    color: #4d80bf;
+    font-style: italic;
+    padding: 0.5em 1em;
 }
 
 p.date {
