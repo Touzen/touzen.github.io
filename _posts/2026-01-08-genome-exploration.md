@@ -8,7 +8,7 @@ Back when genetic testing was starting to become trendy, and privacy concerns we
 
 Many years have passed, and MyHeritage is still holding on to my DNA. So, I thought I'd download it and see what I can do with the data. The first thing that comes to mind is, of course, to see if I have any rare genetic mutations! A brilliant idea for somebody who holds his breath when passing somebody coughing. In any case, the good (?) thing is that searching one's genome for anomalies is pretty easy and possible to do using open resources!
 
-> **Quick reality check:** MyHeritage raw data is *SNP-chip genotyping*, not full genome sequencing. That means we can look for the clinically annotated variants that MyHeritage supports, but we’re not scanning *everything,* and results are not diagnostic.
+> **Quick reality check:** MyHeritage raw data is *SNP-chip genotyping*, not full genome sequencing. That means we can look for the clinically annotated variants that MyHeritage supports, but we’re not scanning *everything,* and results are not diagnostic. The quality of MyHeritage's analysis is *not* high enough to support clinical decisions and you *will*[^2] find false positives.
 
 If you want to download the data and install the software we'll be using *before* digging in, then here's a list of what you'll need:
 - [Bcftools](https://samtools.github.io/bcftools/)
@@ -45,7 +45,7 @@ Once you've created the VCF file, you're ready for the next, more interesting st
 
 > **An extra warning:** Don't forget how this could affect your family! Sure, it's your own DNA but, DNA being DNA, you share large portions of it with your parents, siblings, and children. They have (probably) not consented to your exploration of the DNA you have in common. Take a moment to reflect on how anything you find might affect your loved ones, and think about how and if you would disclose anything you find.
 
-Having established that you are either (1) a medical professional or (2) somebody with high self-confidence and/or poor judgement, we're ready to continue. The next step is to download another file, containing information about genetic variations and how they may affect your health: [ClinVar](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh37/clinvar_20260104.vcf.gz). You will also need[^2] the associated so-called [TBI file](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh37/clinvar_20260104.vcf.gz.tbi) for these next steps.
+Having established that you are either (1) a medical professional or (2) somebody with high self-confidence and/or poor judgement, we're ready to continue. The next step is to download another file, containing information about genetic variations and how they may affect your health: [ClinVar](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh37/clinvar_20260104.vcf.gz). You will also need[^3] the associated so-called [TBI file](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh37/clinvar_20260104.vcf.gz.tbi) for these next steps.
 
 While you're downloading ClinVar, you might as well set up [SnpSift](https://pcingola.github.io/SnpEff/download/) which is the tool we'll be using to enrich our VCF file with the clinical information from ClinVar. Unzip the archive and run the following line:
 ```bash
@@ -127,4 +127,6 @@ That's it! You can, of course, continue exploring the data in Jupyter Notebook. 
 
 [^1]: This explains a hilarious interaction I had at one of my first scientific conferences. At the welcome reception, another PhD student came up to me and---without introducing himself---exclaimed that I was the most Italian person he'd ever seen!
 
-[^2]: Some of the guides I followed did not mention this file. I'm not completely sure why this is the case, but the file apparently provides an index which is missing from the version of ClinVar I had downloaded.
+[^2]: For example, my results showed a very alarming and rare mutation. When I looked into it, I learned that it was, beyond reasonable doubt, a false positive. Had I actually had that mutation, I would be severely disabled, if not already dead. Yet I am very much alive. :)
+
+[^3]: Some of the guides I followed did not mention this file. I'm not completely sure why this is the case, but the file apparently provides an index which is missing from the version of ClinVar I had downloaded.
