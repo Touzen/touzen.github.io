@@ -6,7 +6,7 @@ date:          2026-01-08 23:00:00 +0200
 
 Back when genetic testing was starting to become trendy, and privacy concerns were not as prescient, I agreed to get my DNA analyzed by MyHeritage. The rest of my family and I were curious to see if we'd find any surprising information in the ethnic estimation. In the end, my main take-away was that being a mixed Swedish--Persian heritage apparently makes my DNA look Italian[^1]. I guess it makes sense, at least geographically.
 
-Many years have passed, and MyHeritage is still holding on to my DNA. So, I thought I'd download it and see what I can do with the data. The first thing that comes to mind is, of course, to see if I have any rare genetic mutations! A brilliant idea for somebody who holds his breath when passing somebody coughing. In any case, the good (?) thing is that searching one's genome for anomalies is pretty easy and possible to do using open resources!
+Many years have passed, and MyHeritage is still holding on to my DNA. So, I thought I'd download it and see what I can do with the data. The first thing that comes to mind is, of course, to see if I have any rare genetic mutations! A brilliant idea for somebody who holds his breath when passing a coughing stranger. In any case, the good (?) thing is that searching one's genome for anomalies is pretty easy and possible to do using open resources!
 
 > **Quick reality check:** MyHeritage raw data is *SNP-chip genotyping*, not full genome sequencing. That means we can look for the clinically annotated variants that MyHeritage supports, but we’re not scanning *everything,* and results are not diagnostic. The quality of MyHeritage's analysis is *not* high enough to support clinical decisions and you *will*[^2] find false positives.
 
