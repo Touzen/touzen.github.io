@@ -88,6 +88,8 @@ div.highlight {
     margin-left: 1em;
     overflow-x: scroll;
     color: #63cd70;
+    line-height: 1.8em;
+
 }
 
 div:has(div.highlight) {
