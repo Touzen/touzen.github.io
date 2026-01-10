@@ -8,8 +8,11 @@ Hosting your own services is fun! Recently, I have been trying out [Immich](http
 
 # The solution (?)
 A lot of nice functionality -- such as Immich's map function -- need exif data to function. While it's possible to piece together the exif data from the JSON files, this would be quite tedious. Thankfully, the Immich community has a neat solution for this! [Immich-Go](https://github.com/simulot/immich-go) is a tool that let's you upload photos from your Google Takeout files and that takes care of the JSON metadata for you. Using it is as simple as running:
-```
-immich-go upload from-google-photos --server=http://your-ip:2283 --api-key=your-api-key /path/to/your/takeout-*.zip
+```bash
+immich-go upload from-google-photos \
+    --server=http://your-ip:2283 \
+    --api-key=your-api-key \
+    /path/to/your/takeout-*.zip
 ```
 
 Nice! So you just need to download you takeout files and then you're good to go. Right? Well, actually downloading your takeout files isn't as straightforward as you'd think. First of all, there are space issues. Depending on how many photos you have, the total size of your takeout can easily reach hundreds of gigabytes. Furthermore, Google seems to really dislike when you download large files. I never managed to complete an entire download -- Google would simply kill the connection after a few gigabytes had been downloaded.
@@ -19,9 +22,13 @@ Here, I was ready to give up. For the life of me, I couldn't figure out how to d
 
 [rclone](https://rclone.org/) is a tool that let's you do exactly this. It was a bit [tedious to set up](https://rclone.org/drive/) since it took a lot of plumbing to get the required API key from Google. However, once you get past this step, you can finally run the migration!
 
-```
+```bash
 rclone mount drive-remote:drive/path/to/takeout /path/to/mount
-immich-go upload from-google-photos --server=http://your-ip:2283 --api-key=your-api-key /path/to/mount/takeout-*.zip
+
+immich-go upload from-google-photos \
+    --server=http://your-ip:2283 \
+    --api-key=your-api-key \
+    /path/to/mount/takeout-*.zip
 ```
 
 Now, Immich-Go will automatically import all the Google Photos -- with metadata -- into your local (or remote) Immich instance. This takes a while, but it works flawlessly and without requiring any extra storage space for the takeout files.
