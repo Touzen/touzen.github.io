@@ -1,5 +1,6 @@
 ---
 layout: post
+tags: post
 title: Long author lists in the ACL LaTeX template (and how ChatGPT didn't help)
 ---
 
@@ -47,7 +48,7 @@ And in response I got a response in the typical overly-cheerful and manically he
 Did this work? Not at all! It broke the bibliography to list _no authors_. I gave it another go by sharing this and then realized it would be better to share the actual code. While I got closer and closer to something that might work, it never worked quite right.
 
 In the end, I took one hard look at the code (even though it was in Polish notation). That's when I saw that the rows:
-```
+```bash
 t "others" =
 {
     " " * bbl.etal *

@@ -1,7 +1,9 @@
 ---
 layout:        magazine
+tags:
+    - post
+    - sv
 title:         "Bortom käbbel & mansplaining"
-date:          2017-09-06 00:00:00 +0200
 published-at:  https://issuu.com/osqledaren/docs/issue_1
 outlet:        Osqledaren
 ---

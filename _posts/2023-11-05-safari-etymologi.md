@@ -1,7 +1,9 @@
 ---
 layout:        post
+tags:
+    - post
+    - sv
 title:         "Safari, safar och sāfāri"
-date:          2023-11-05 22:30:00 -0300
 ---
 
 Såg [denna tweet](https://twitter.com/pannlampspoet/status/1721188577864741090?t=K8SjbVmcRaREhEcMtMjLDQ&s=19):

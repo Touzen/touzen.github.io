@@ -1,7 +1,9 @@
 ---
 layout:            post
+tags:
+    - post
+    - sv
 title:             "En trygg arbetsmarknad - idag och imorgon"
-date:              2018-02-22 15:00:00 +0200
 excerpt_separator: <!--more-->
 ---
 *Kommentar: Detta var en arbetsmarknadspolitisk programdel inför Stockholms läns distriktsårskongress 2018.*

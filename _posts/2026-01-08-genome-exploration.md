@@ -1,7 +1,7 @@
 ---
 layout:        post
+tags:        post
 title:         "Looking for anomalies in my MyHeritage DNA"
-date:          2026-01-08 23:00:00 +0200
 ---
 
 Back when genetic testing was starting to become trendy, and privacy concerns were not as prescient, I agreed to get my DNA analyzed by MyHeritage. The rest of my family and I were curious to see if we'd find any surprising information in the ethnic estimation. In the end, my main take-away was that being a mixed Swedish--Persian heritage apparently makes my DNA look Italian[^1]. I guess it makes sense, at least geographically.
@@ -29,7 +29,7 @@ csvtool -t COMMA -u TAB cat dna_data.csv > dna_data.tsv     # Separate by tabs i
 
 Next, we will perform the actual conversion. I used an open-source tool called [Bcftools](https://samtools.github.io/bcftools/). The VCF format actually stores data about genetic *variations*. Consequently, before we can create our VCF file, we'll need a reference genome to compare our data to. Here's where it might help to inspect the `headers.txt` file. If your data is from MyHeritage, you will find a line reading something like:
 
-```
+```text
 ##reference=build37
 ```
 

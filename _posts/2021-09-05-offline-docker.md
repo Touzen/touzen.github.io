@@ -1,18 +1,35 @@
 ---
 layout: post
+tags: post
 title: Running CUDA models offline with Docker
 ---
 In my research, I often have to run machine learning experiments on very sensitive data. This data lives in a protected environment, and one of the features of this environment is that it is sealed off from the internet. This makes running experiments a bit challenging.
 
 We don't want to install a bunch of dependencies in the shared environment, since this might break other people's experiments. At the same time, it is quite difficult to create a virtual environment without internet access, since it is often quite tricky to find all the dependencies. This is an excellent use-case for Docker containers!
 
-{% gist bdf35b5f22baf2a053fabd56e0b24ebf %}
+```docker
+FROM nvidia/cuda:11.2.2-base-ubuntu20.04
+
+WORKDIR /app
+
+COPY *.py .
+COPY requirements.txt .
+
+VOLUME /model
+VOLUME /data
+
+RUN apt-get update
+RUN apt-get install -y python3 python3-pip
+RUN pip3 install -r requirements.txt
+
+ENTRYPOINT bash
+```
 
 The `Dockerfile` included above is an example of how you could create a CUDA-enabled environment that has all your Python scripts and the environment needed to run them. The model and data directories can be mounted to the container when we start it. More on that in the end of the post.
 
 To build the Docker container, use the following command:
 
-```
+```bash
 docker build . -t my-docker-container -f path/to/Dockerfile
 ```
 
@@ -20,7 +37,7 @@ Note that Docker [will not follow symlinks](https://stackoverflow.com/a/31885214
 
 Now that the container has been built, we can save it to a gzipped file using the following command:
 
-```
+```bash
 docker save my-docker-container | gzip > /path/to/my-docker-container.tar.gz
 ```
 
@@ -30,13 +47,13 @@ Before we can do this, however, we need to ensure that the server has the softwa
 
 With that sorted out, next step is to load it onto this machine using the following command:
 
-```
+```bash
 docker load -i /usb/path/to/my-docker-container.tar.gz
 ```
 
 A nice bonus is that Docker decompresses the file on the fly when loading it. Now, the only thing left is to actually start the container:
 
-```
+```bash
 docker run --gpus all -v /path/to/data:/data -v /path/to/model:/model -it my-docker-container bash
 ```
 

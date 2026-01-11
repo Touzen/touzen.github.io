@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posttags: post
 title: Fixing the Ubuntu Suspend Issue on the Razer Blade Advanced 2021
 ---
 I have been using a _Razer Blade Advanced 2021_ for the last year during my PhD studies. It's really powerful and has a RTX 3070 GPU which means you can do some basic machine learning with CUDA which really speeds up my prototyping work.
@@ -9,13 +9,13 @@ Overall, I think it's a great machine. However, for most of my time using it I h
 This has meant that every time I leave the office to go home, or vice versa, I need to close everything I'm working on. Until now! I managed to find the solution[^1] [^2], after months of (admittedly only occasionally) scouring the internet for solutions to this problem. Here's the annoyingly simple way to fix it:
 
 Open the file `/etc/default/grub` and change the line:
-```
+```bash
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
-```
+```bash
 To:
-```
+```bash
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia.NVreg_RegistryDwords=EnableBrightnessControl=1"
-```
+```bash
 
 There you go! This little change improved my quality of life to a degree which is frankly a bit embarassing. If any search engine managed to get you here: you're very welcome, you're finally free of this pain.
 

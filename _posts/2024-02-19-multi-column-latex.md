@@ -1,14 +1,36 @@
 ---
 layout: post
+tags: post
 title: Centered Multi-Column Tables in LaTeX
 ---
 From time to time, I need to create tables in LaTeX. Increasingly, these tables have become more and more complex. On particular complexity that I've had to tackle a few times recently is how to create multi-column tables. There are many use-cases where you might want to do this. One specific case that I increasingly need to present in my papers is when we have NLP models trained on many different datasets and evaluated using multiple metrics, as in this example below:
 
-![A table where a NER model for clinical entity recognition is evaluated on multiple versions of a dataset, reporting both precision, recall and F1 scores.]({{ site.url }}/images/latex-table.png){: .center-image }
+![A table where a NER model for clinical entity recognition is evaluated on multiple versions of a dataset, reporting both precision, recall and F1 scores.]({{ site.url }}/images/latex-table.png)
 
 I have had to create tables like these multiple times throughout my PhD studies, but I have always struggled to find a method that (a) doesn't feel like a "hack" and (b) consistently centers the columns on all rows. Until now, that is! The way to do this, it turns out, is to use the `\multirow` and `\multicolumn` commands from the `multirow` package. Here is an (abbreviated) example of how the table from the screenshot was created:
 
-{% gist 0b6554c1b1f20e8e6f93f1646d492369 %}
+```latex
+\begin{tabular}{r c c c c c c c c c c c}
+\toprule
+    \multirow{2}{*}{\textbf{Entity}} & 
+    \multicolumn{3}{c}{\textbf{Original}} & &
+    \multicolumn{3}{c}{\textbf{Masked}} & &
+    \multicolumn{3}{c}{\textbf{Pseudonymized}} \\
+    \cmidrule{2-4} \cmidrule{6-8} \cmidrule{10-12}
+    & \textbf{P} & \textbf{R} & \textbf{F\textsubscript{1}} &
+    & \textbf{P} & \textbf{R} & \textbf{F\textsubscript{1}} &
+    & \textbf{P} & \textbf{R} & \textbf{F\textsubscript{1}} \\
+\midrule
+     \textit{Disease} &
+        0.93 & 0.78 & 0.85 & &
+        0.90 & 0.74 & 0.81 & &
+        0.92 & 0.76 & 0.83 \\
+  
+...
+
+\bottomrule
+\end{tabular}
+```
 
 Here is an explanation, by row:
 

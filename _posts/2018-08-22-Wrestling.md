@@ -1,5 +1,6 @@
 ---
 layout: post
+tags: post
 title: Wrestling with Scala database libraries
 ---
 

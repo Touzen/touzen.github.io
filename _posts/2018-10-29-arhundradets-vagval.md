@@ -1,7 +1,9 @@
 ---
 layout:        magazine
+tags:
+    - post
+    - sv
 title:         "Valanalys 2018: Århundradets vägval"
-date:          2018-10-29 02:00:00 +0200
 outlet:        Osqledaren
 ---
 

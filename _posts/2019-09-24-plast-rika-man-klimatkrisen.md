@@ -1,7 +1,9 @@
 ---
 layout:        magazine
+tags:
+    - post
+    - sv
 title:         "829 gram plast, 8 rika män och 1 lösning på klimatkrisen"
-date:          2019-09-24 00:00:00 +0200
 published-at:  https://issuu.com/osqledaren/docs/ol_120192020digital
 outlet:        Osqledaren
 ---

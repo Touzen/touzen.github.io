@@ -4,9 +4,10 @@ permalink: /
 ---
 
 <div class="posts">
-  {% for post in site.posts %}
+  {% assign posts = collections.post | sort: "date" | reverse %}
+  {% for post in posts %}
     <article class="post">
-        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.data.title }}</a></h1>
 
         <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
 

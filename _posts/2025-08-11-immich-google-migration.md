@@ -1,7 +1,7 @@
 ---
 layout:        post
+tags:        post
 title:         "Seamless migration from Google Photos to Immich"
-date:          2025-08-11 18:00:00 +0200
 ---
 
 Hosting your own services is fun! Recently, I have been trying out [Immich](https://immich.app/), which is an open-source and (optionally) self-hosted alternative to Google Photos. However, Google Photos (unsurprisingly) lacks a built-in way to conveniently export all your data to another service. The only way to download _all_ of your content is to export it using [Google Takeout](https://takeout.google.com/). Unfortunately, Google will strip the photos of most of their exif data -- such as geolocation info -- and instead provide this information in JSON files accompanying each photo.

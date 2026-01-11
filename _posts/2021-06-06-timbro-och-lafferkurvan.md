@@ -1,11 +1,13 @@
 ---
 layout:            post
+tags:
+    - post
+    - sv
 title:             "Timbro och Lafferkurvan"
-date:              2021-06-06 15:00:00 +0200
 ---
 Jacob Lundberg har en doktorsexamen från Uppsala Universitet, är [chefsekonom på Timbro](https://timbro.se/person/jacob-lundberg/?prev=/om-oss/medarbetare/) och är en varm anhängare av *Lafferkurvan*. Det är en idé som bygger på att det finns en optimal skattenivå som maximerar skatteintäkterna, men som lustigt nog alltid används för att argumentera för att denna optimala nivå är lägre än dagens skattesatser.
 
-![En Lafferkurva där den optimala skattesatsen bedömts vara 70 %.](/images/nek/laffer.png){: .center-image }
+![En Lafferkurva där den optimala skattesatsen bedömts vara 70 %.](/images/nek/laffer.png)
 
 I [en bloggpost](https://timbro.se/ekonomi/skatter/lafferkurvans-aterkomst/) bygger han caset för att Lafferkurvan inte förtjänar sitt rykte som pseudointellektuell tramsteori utan i själva verket går att belägga empiriskt. Det gör han på ett väldigt tokigt sätt.
 

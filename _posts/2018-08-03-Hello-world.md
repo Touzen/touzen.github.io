@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posttags: post
 title: Hello, world!
 ---
 

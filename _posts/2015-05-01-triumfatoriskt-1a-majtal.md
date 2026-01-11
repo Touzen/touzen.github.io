@@ -1,7 +1,9 @@
 ---
 layout:        post
+tags:
+    - post
+    - sv
 title:         "Första maj 2015: Sverige har en socialdemokratisk regering"
-date:          2015-05-01 15:00:00 +0200
 ---
 Kära vänner, vad kul att se er här! Jag hoppas att ni hade en riktigt trevlig valborg igår. Min valborgskväll tillbringades, precis som de två senaste åren med att skriva första maj-tal. Det är alltid en utmanande uppgift, men just i år var det faktiskt lite extra svårt.
 

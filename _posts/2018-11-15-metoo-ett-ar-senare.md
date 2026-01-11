@@ -1,7 +1,9 @@
 ---
 layout:        magazine
+tags:
+    - post
+    - sv
 title:         "#metoo - ett år senare"
-date:          2018-11-15 00:00:00 +0200
 published-at:  https://issuu.com/osqledaren/docs/osqledaren_2_issuu
 outlet:        Osqledaren
 ---

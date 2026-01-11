@@ -1,7 +1,9 @@
 ---
 layout:        post
 title:         "Tal av en avgående kassör på DÅK:en 2019"
-date:          2019-03-12 15:00:00 +0200
+tags:
+    - post
+    - sv
 ---
 Ja kära vänner, så var det äntligen dags. Dagen jag vetat skulle komma redan dagen jag valdes in i DS för 5 år sen. Den dag jag behöver hålla ett avgångstal. Helt ärligt så har jag skrivit och skrivit om det här talet säkert 100 gånger under de år jag suttit i styrelsen.
 

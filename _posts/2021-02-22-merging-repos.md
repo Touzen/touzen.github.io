@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posttags: post
 title: Merging repositories
 ---
 Sometimes you run into the unfortunate situation where you receive a code base without its Git history. It may even be the case that you don't even know such a history exists. And so, you run `git init` and start tinkering.
